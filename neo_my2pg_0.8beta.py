@@ -4,6 +4,7 @@
 #*                                                                       */
 #* Copyright (c) 2006-2012 						 */
 #* by Federico Campoli (4thdoctor.gallifrey@gmail.com)                   */
+#* Copyright (c) 2006-2012 by Federico Campoli (neo@thezion.net)         */
 #*                                                                       */
 #* This program is free software. You can redistribute it and/or modify  */
 #* it under the terms of the GNU General Public License as published by  */
