@@ -1,8 +1,9 @@
 #*************************************************************************/
-#* PHPBB - MYSQL TO POSTGRESQL - MIGRATION SCRIPT			 */
+#* MYSQL TO POSTGRESQL - MIGRATION SCRIPT			         */
 #* ============================================                          */
 #*                                                                       */
-#* Copyright (c) 2006-2008 by Federico Campoli (neo@thezion.net)         */
+#* Copyright (c) 2006-2012 						 */
+#* by Federico Campoli (4thdoctor.gallifrey@gmail.com)                   */
 #*                                                                       */
 #* This program is free software. You can redistribute it and/or modify  */
 #* it under the terms of the GNU General Public License as published by  */
@@ -13,8 +14,11 @@
 # script dependencies
 # MySQLdb - http://sourceforge.net/projects/mysql-python
 # Psycopg2 
-# changes from 0.7
-# add blob to bytea datatype creation and transfer 
+
+#connection opening to mysql and postgresql
+#you need to change the next two lines for your connections
+mysql_conn = MySQLdb.connect(db='MYSQLDB', host='MYSQLHOST', user='MYSQLUSR', passwd='MYSQLPASS')
+pgsql_conn = psycopg2.connect("dbname=PGDATABASE user=PGUSER host=PGHOST password=PGPASS port=PGPORT")
 
 
 # FUNCTION LIBRARY
@@ -96,10 +100,6 @@ i_multi_read=10000
 
 
 
-#connection opening to mysql and postgresql
-#you need to change the next two lines for your connections
-mysql_conn = MySQLdb.connect(db='MYSQLDB', host='MYSQLHOST', user='MYSQLUSR', passwd='MYSQLPASS')
-pgsql_conn = psycopg2.connect("dbname=PGDATABASE user=PGUSER host=PGHOST password=PGPASS port=PGPORT")
 
 
 #MIGRATION OF TABLE STRUCTURE
