@@ -1,20 +1,9 @@
-Script to copy structure and data from mysql to postgresql without intermediate dump. 
-
-To work properly needs the following database connectors
-
-MySQLdb - http://sourceforge.net/projects/mysql-python
-Psycopg2 - http://pypi.python.org/pypi/psycopg2
-
+Python package to copy structure and data from mysql to postgresql. 
+	Author: Federico Campoli <4thdoctor(dot)gallifrey(at)gmail(dot)com>
+	License: GNU GPL V3
+	Dev version: 0.9
 Changelog 
 
-0.8Beta
-		added the binary data type transfer 
-
-0.7Beta
-		changed postgresql library to Psycopg2 
-		added error handler on create table
-
-06Beta
-		fixed wrong display of records imported 
-		fixed CURRENT_TIMESTAMP management
-		fixed multicolumn primary keys management 
+	2013-01-23	Changed licence to GPL V3. 
+			Created package structure and registered 
+			on http://pypi.python.org/
