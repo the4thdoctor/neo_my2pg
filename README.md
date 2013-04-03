@@ -7,6 +7,9 @@ Psycopg2 - http://pypi.python.org/pypi/psycopg2
 
 Changelog 
 
+0.8.1Beta
+		added the date key in the dic_datatype dictionary
+
 0.8Beta
 		added the binary data type transfer 
 

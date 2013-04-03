@@ -4,13 +4,12 @@
 #*                                                                       */
 #* Copyright (c) 2006-2012 						 */
 #* by Federico Campoli (4thdoctor.gallifrey@gmail.com)                   */
-#* Copyright (c) 2006-2012 by Federico Campoli (neo@thezion.net)         */
 #*                                                                       */
 #* This program is free software. You can redistribute it and/or modify  */
 #* it under the terms of the GNU General Public License as published by  */
 #* the Free Software Foundation; either version 2 of the License.        */
 #*************************************************************************/
-# VERSION 0.8Beta
+# VERSION 0.8.1Beta
 # copy structure and data from mysql to postgresql. works with phpbb
 # script dependencies
 # MySQLdb - http://sourceforge.net/projects/mysql-python
@@ -92,7 +91,7 @@ import os
 import re
 
 #datadictionary for mysql to postgresql translation
-dic_datatype={'mediumint':'int8','tinyint':'int2','smallint':'int2','int':'int8','varchar':'varchar','bigint':'int8','text':'text','char':'char','datetime':'date','longtext':'text','tinytext':'text','tinyblob':'bytea','mediumblob':'bytea','longblob':'bytea','blob':'bytea'}
+dic_datatype={'mediumint':'int8','tinyint':'int2','smallint':'int2','int':'int8','varchar':'varchar','bigint':'int8','text':'text','char':'char','datetime':'date','date':'date','longtext':'text','tinytext':'text','tinyblob':'bytea','mediumblob':'bytea','longblob':'bytea','blob':'bytea'}
 dic_datavalue={'None':'Null','CURRENT_TIMESTAMP':'CURRENT_TIMESTAMP'}
 dic_null={'YES':'NULL','':'NOT NULL'}
 
