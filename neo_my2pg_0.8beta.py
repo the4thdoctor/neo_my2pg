@@ -2,14 +2,14 @@
 #* MYSQL TO POSTGRESQL - MIGRATION SCRIPT			         */
 #* ============================================                          */
 #*                                                                       */
-#* Copyright (c) 2006-2012 						 */
+#* Copyright (c) 2006-2014 						 */
 #* by Federico Campoli (4thdoctor.gallifrey@gmail.com)                   */
 #*                                                                       */
 #* This program is free software. You can redistribute it and/or modify  */
 #* it under the terms of the GNU General Public License as published by  */
 #* the Free Software Foundation; either version 2 of the License.        */
 #*************************************************************************/
-# VERSION 0.8.1Beta
+# VERSION 0.8.2Beta
 # copy structure and data from mysql to postgresql. works with phpbb
 # script dependencies
 # MySQLdb - http://sourceforge.net/projects/mysql-python
@@ -20,7 +20,7 @@ import MySQLdb
 import psycopg2
 import os
 import re
-
+import time
 
 #connection opening to mysql and postgresql
 #you need to change the next two lines for your connections
@@ -172,6 +172,7 @@ for table_name in str_l_tab:
 		i_num_read=lng_num_record[0]/i_multi_read
 		rng_num_read=range(i_num_read+1)
 		v_dml_pg=""
+		#copy data between tables
 		for rng_item in rng_num_read:
 			c_mys.execute('describe '+table_name[0]+';')
 			str_field_tab=c_mys.fetchall()
@@ -182,9 +183,10 @@ for table_name in str_l_tab:
 			try:
 				
 				str_d_tab=c_mys.fetchall()
+				v_dml_pg='INSERT INTO '+table_name[0]+' VALUES '
 				for record in str_d_tab:
 					
-					v_dml_pg=v_dml_pg+'INSERT INTO '+table_name[0]+' VALUES ('
+					v_dml_pg=v_dml_pg+'  ('
 					v_position=0
 					for value in record:
 						t_field_type=str_field_tab[v_position][1]
@@ -201,7 +203,9 @@ for table_name in str_l_tab:
 						v_dml_pg+=""+v_field_value +","
 						v_position=+1
 					v_dml_pg=v_dml_pg[0:(len(v_dml_pg)-1)]
-					v_dml_pg+=");"
+					v_dml_pg+="),"
+				v_dml_pg=v_dml_pg[:-1]
+				v_dml_pg+=";"
 				
 						
 					
@@ -218,7 +222,7 @@ for table_name in str_l_tab:
 				print str_sql
 				print v_dml_pg
 				raise ("error on insert")	
-			print str(min(lng_num_record[0],(rng_item+1)*i_multi_read))+" records imported"
+			print str(time.ctime())+" - "+str(min(lng_num_record[0],(rng_item+1)*i_multi_read))+" records imported"
 
 
 #CREATE SEQUENCES CONSTRAINTS AND INDEX
