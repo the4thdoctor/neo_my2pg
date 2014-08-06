@@ -14,6 +14,13 @@
 # script dependencies
 # MySQLdb - http://sourceforge.net/projects/mysql-python
 # Psycopg2 
+#import objects string and library for mysql and postgresql
+import string
+import MySQLdb
+import psycopg2
+import os
+import re
+
 
 #connection opening to mysql and postgresql
 #you need to change the next two lines for your connections
@@ -82,13 +89,6 @@ def make_bytea(binary_string):
 		binary_string=''
 
 	return binary_string
-
-#import objects string and library for mysql and postgresql
-import string
-import MySQLdb
-import psycopg2
-import os
-import re
 
 #datadictionary for mysql to postgresql translation
 dic_datatype={'mediumint':'int8','tinyint':'int2','smallint':'int2','int':'int8','varchar':'varchar','bigint':'int8','text':'text','char':'char','datetime':'date','date':'date','longtext':'text','tinytext':'text','tinyblob':'bytea','mediumblob':'bytea','longblob':'bytea','blob':'bytea'}
