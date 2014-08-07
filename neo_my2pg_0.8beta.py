@@ -221,7 +221,7 @@ for table_name in str_l_tab:
 			except:
 				print str_sql
 				print v_dml_pg
-				raise ("error on insert")	
+				print "ERROR: PG > Error in insert into "+table_name[0]+" "	
 			print str(time.ctime())+" - "+str(min(lng_num_record[0],(rng_item+1)*i_multi_read))+" records imported"
 
 
